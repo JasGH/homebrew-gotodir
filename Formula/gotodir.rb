@@ -2,7 +2,7 @@ class Gotodir < Formula
   desc "Arrow-key picker for jumping between project directories"
   homepage "https://github.com/JasGH/gotodir"
   url "https://github.com/JasGH/gotodir/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "REPLACE_WITH_TARBALL_SHA256"
+  sha256 "292bd132106cba8e2500fc0d7f30cf0c478e9af38b44a47859b5611f78169479"
   license "MIT"
   version "0.1.0"
 
@@ -15,14 +15,13 @@ class Gotodir < Formula
 
   def caveats
     <<~EOS
-      To enable the `goto` command, add this to your shell config:
+      To enable the `goto` command, run:
 
-        # ~/.zshrc  (or ~/.bashrc)
-        [ -f "#{opt_pkgshare}/gotodir.sh" ] && source "#{opt_pkgshare}/gotodir.sh"
-
-      Then reload your shell:
-
+        gotodir init
         source ~/.zshrc   # or open a new terminal
+
+      `gotodir init` detects your shell and appends a managed block to your
+      rc file. It is idempotent — safe to re-run after upgrades.
 
       Optional: install `claude` (https://claude.com/claude-code) to use
       the `-c` flag, which launches Claude Code in the destination dir.
